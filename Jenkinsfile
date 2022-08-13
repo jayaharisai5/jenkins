@@ -14,7 +14,7 @@ pipeline{
         }
         stage("load_data"){
             steps{
-                python3 load_data.py
+                sh 'python3 load_data.py'
             }
         }
         
