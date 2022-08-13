@@ -9,4 +9,4 @@ def load_data():
     return data
 
 # calling the function
-#load_data()
+load_data()
