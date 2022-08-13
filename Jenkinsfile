@@ -17,6 +17,21 @@ pipeline{
                 sh 'python3 load_data.py'
             }
         }
+        stage("feature_engineering"){
+            steps{
+                sh 'python3 feature_engineering.py'
+            }
+        }
+        stage("pre_processing"){
+            steps{
+                sh 'python3 pre_processing.py'
+            }
+        }
+        stage("model_selection"){
+            steps{
+                sh 'python3 model_selection.py'
+            }
+        }
         
     }
     post{
