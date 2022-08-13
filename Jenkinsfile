@@ -2,26 +2,22 @@ pipeline{
     agent any
 
     stages{
-        stage("load_data"){
+        stage("Checkout"){
             steps{
-                echo "Loading the data is done"
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'ef70b0d3-000a-4c42-a98f-d2c045e33251', url: 'https://github.com/jayaharisai5/jenkins.git']]])
             }
         }
-        stage("feature_engineering"){
+        stage("Checkout"){
             steps{
-                echo "feature_engineering is done"
+                git branch: 'main', credentialsId: 'ef70b0d3-000a-4c42-a98f-d2c045e33251', url: 'https://github.com/jayaharisai5/jenkins.git'
             }
         }
-        stage("pre_processing"){
+        stage("Checkout"){
             steps{
-                echo "pre_processing is done"
+                bat 'python3 load_data.py'
             }
         }
-        stage("model_selection"){
-            steps{
-                echo "model_selection is done"
-            }
-        }
+        
     }
     post{
         always{
