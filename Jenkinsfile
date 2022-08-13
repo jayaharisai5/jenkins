@@ -14,7 +14,7 @@ pipeline{
         }
         stage("load_data"){
             steps{
-                bat 'python3 load_data.py'
+                python3 load_data.py
             }
         }
         
