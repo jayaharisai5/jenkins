@@ -21,4 +21,9 @@ pipeline{
             }
         }
     }
+    post{
+        always{
+            emailext body:"summery", subject: "Pipeline Status", to: 'jayaharisai1212@gmail.com'
+        }
+    }
 }
