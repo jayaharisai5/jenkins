@@ -20,6 +20,6 @@ def pre_processing():
     #return(X_train_res, y_train_res)
     #splitting the data to the ring and test set
     X_train, X_test, y_train, y_test = train_test_split(X_train_res, y_train_res,test_size= 0.2, random_state = 0)
-    #print(X_train)
+    print(X_train)
     return(X_train, X_test, y_train, y_test)
-#pre_processing()
+pre_processing()
