@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 #assigning the values
-X_train, X_test, y_train, y_test = pre_processing()
+
 #print(X_train, X_test, y_train, y_test)
 #print(y_test.dtypes)
 DC = DecisionTreeClassifier()
@@ -16,6 +16,7 @@ KNN = KNeighborsClassifier()
 SVC = SVC()
 
 def model_selection():
+    X_train, X_test, y_train, y_test = pre_processing()
     acc = []
     for i in range(1):
         #print(i)
@@ -55,4 +56,4 @@ def model_selection():
 
     #print(a,b)
     return(a,b) 
-#model_selection()
+model_selection()
