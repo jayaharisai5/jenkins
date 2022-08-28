@@ -18,4 +18,4 @@ def load_data():
     return data
 #helollo
 # calling the function
-load_data()
+#load_data()
