@@ -2,17 +2,31 @@
 import pandas as pd
 import boto3
 
-session = boto3.Session( 
-         aws_access_key_id='AKIA2LYVCCXT5J4TG5V7', 
-         aws_secret_access_key='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')
+config_writer = configparser.ConfigParser()
 
-client = boto3.client('s3')
-path = 's3://mlops-storage/hari/survey lung cancer.csv'
+file = "snowflake.ini"
+config = ConfigParser()
+print(config.read(file))
+
+url = URL(
+    user = config["account"]["user"],
+    password=config["account"]["password"],
+    account=config["account"]["account"],
+    warehouse=config["account"]["warehouse"],
+    database=config["account"]["database"],
+    schema=config["account"]["schema"],
+    role = config["account"]["role"]
+)
+
+engine = create_engine(url)
+connection = engine.connect()
+query = "select * from cancer;"
+
 
 
 # importing the data
 def load_data():
-    data = pd.read_csv(path)
+    data = pd.read_sql(query, connection)
     #data = pd.read_csv("survey lung cancer.csv")  # loading the dataset to dataframe
     #print(data)
     return data
