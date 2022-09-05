@@ -1,0 +1,5 @@
+numpy
+pandas
+snowflake-connector-python
+--upgrade snowflake-sqlalchemy
+"snowflake-connector-python[pandas]"
