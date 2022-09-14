@@ -17,7 +17,7 @@ config = ConfigParser()
 print(config.read(file))
 
 url = URL(
-    user = config["account"]["user"],
+    #user = config["account"]["user"],
     password=config["account"]["password"],
     account=config["account"]["account"],
     warehouse=config["account"]["warehouse"],
